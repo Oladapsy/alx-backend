@@ -59,7 +59,7 @@ class Server:
             total_pages: the total number of pages in the dataset as an integer
         """
         data = self.get_page(page, page_size)
-        page_size = len(data)
+        cur_page_size = len(data)
         """ Total items in the dataset"""
         total_items = len(self.dataset())
         total_pages = math.ceil(total_items / page_size)
@@ -69,7 +69,7 @@ class Server:
         prev_page = page - 1 if page > 1 else None
 
         dictionary = {
-                'page_size': page_size,
+                'page_size': cur_page_size,
                 'page': page,
                 'data': data,
                 'next_page': next_page,
