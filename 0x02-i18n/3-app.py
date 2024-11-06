@@ -5,7 +5,7 @@
     that simply outputs “Welcome to Holberton” as page
     title (<title>) and “Hello world” as header (<h1>).
 """
-from flask import Flask, request, g
+from flask import Flask, request
 from flask import render_template
 from flask_babel import Babel, gettext as _
 from typing import Union
@@ -33,8 +33,7 @@ def get_locale() -> Union[str, None]:
     """
         to determine the best match with our supported languages.
     """
-    g.locale = request.accept_languages.best_match(app.config['LANGUAGES'])
-    return g.locale
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', strict_slashes=False)
