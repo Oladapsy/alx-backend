@@ -12,8 +12,10 @@ from flask_babel import Babel, gettext as _
 
 
 class Config:
-    """
-        change default config in flask babel
+    """_summary_
+
+    Returns:
+            _type_: _description_
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -32,8 +34,10 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
-    """
-        to determine the best match with our supported languages.
+    """_summary_
+
+    Returns:
+            _type_: _description_
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
