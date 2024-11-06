@@ -26,7 +26,7 @@ def get_locale():
     """
         to determine the best match with our supported languages.
     """
-    return request.accept_languages.best_match(app.Config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', strict_slashes=False)
@@ -39,4 +39,4 @@ def index() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
