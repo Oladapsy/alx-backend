@@ -8,6 +8,7 @@
 from flask import Flask, request, g
 from flask import render_template
 from flask_babel import Babel, gettext as _
+from typing import Union
 
 
 class Config:
@@ -28,7 +29,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> Union[str, None]:
     """
         to determine the best match with our supported languages.
     """
