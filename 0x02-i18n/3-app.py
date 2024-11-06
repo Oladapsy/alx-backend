@@ -7,10 +7,9 @@
 """
 from flask import Flask, request, render_template
 from flask_babel import Babel, gettext as _
-from typing import Union
 
 
-class Config:
+class Config(object):
     """
         change default config in flask babel
     """
@@ -27,7 +26,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale() -> Union[str, None]:
+def get_locale():
     """
         to determine the best match with our supported languages.
     """
@@ -45,4 +44,4 @@ def index() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=5000)
