@@ -5,7 +5,7 @@
     that simply outputs “Welcome to Holberton” as page
     title (<title>) and “Hello world” as header (<h1>).
 """
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask import render_template
 from flask_babel import Babel
 
@@ -40,4 +40,4 @@ def index() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=3000, debug=True)
