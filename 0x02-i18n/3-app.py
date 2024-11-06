@@ -20,6 +20,8 @@ class Config:
 # create app instance and map the app to Babel
 app = Flask(__name__)
 app.config.from_object(Config)
+
+# map app to Babel
 babel = Babel(app)
 
 
