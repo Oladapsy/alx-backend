@@ -5,17 +5,14 @@
     that simply outputs “Welcome to Holberton” as page
     title (<title>) and “Hello world” as header (<h1>).
 """
-from flask import Flask, request
+from flask import Flask, request, g
 from flask import render_template
 from flask_babel import Babel, gettext as _
-""" the gettext to get a text for translation"""
 
 
 class Config:
-    """_summary_
-
-    Returns:
-            _type_: _description_
+    """
+        change default config in flask babel
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -24,8 +21,6 @@ class Config:
 
 # create app instance and map the app to Babel
 app = Flask(__name__)
-
-# the configuration class or object to use
 app.config.from_object(Config)
 
 # map app to Babel
@@ -33,13 +28,12 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale() -> str:
-    """_summary_
-
-    Returns:
-            _type_: _description_
+def get_locale():
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+        to determine the best match with our supported languages.
+    """
+    g.locale = request.accept_languages.best_match(app.config['LANGUAGES'])
+    return g.locale
 
 
 @app.route('/', strict_slashes=False)
@@ -48,9 +42,8 @@ def index() -> str:
         the / root page
         renders basic html
     """
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == "__main__":
-    """ the main file"""
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
