@@ -11,7 +11,9 @@ from flask_babel import Babel, gettext as _
 
 
 class Config:
-    """change default config in flask babel"""
+    """
+        change default config in flask babel
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
