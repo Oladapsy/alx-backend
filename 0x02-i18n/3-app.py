@@ -22,6 +22,7 @@ class Config:
 # create app instance and map the app to Babel
 app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
@@ -33,7 +34,7 @@ def get_locale() -> Union[str, None]:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/')
 def index() -> str:
     """
         the / root page
