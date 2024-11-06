@@ -10,7 +10,7 @@ from flask import render_template
 from flask_babel import Babel
 
 
-class Config:
+class Config(object):
     """change default config in flask babel"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
