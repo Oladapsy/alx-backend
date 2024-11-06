@@ -5,8 +5,7 @@
     that simply outputs “Welcome to Holberton” as page
     title (<title>) and “Hello world” as header (<h1>).
 """
-from flask import Flask, request
-from flask import render_template
+from flask import Flask, request, render_template
 from flask_babel import Babel, gettext as _
 from typing import Union
 
@@ -23,8 +22,6 @@ class Config:
 # create app instance and map the app to Babel
 app = Flask(__name__)
 app.config.from_object(Config)
-
-# map app to Babel
 babel = Babel(app)
 
 
