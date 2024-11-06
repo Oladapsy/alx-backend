@@ -6,7 +6,6 @@
     title (<title>) and “Hello world” as header (<h1>).
 """
 from flask import Flask, request, render_template
-from flask import render_template
 from flask_babel import Babel
 
 
