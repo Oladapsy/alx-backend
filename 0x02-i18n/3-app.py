@@ -8,6 +8,7 @@
 from flask import Flask, request
 from flask import render_template
 from flask_babel import Babel, gettext as _
+""" the gettext to get a text for translation"""
 
 
 class Config:
@@ -21,6 +22,8 @@ class Config:
 
 # create app instance and map the app to Babel
 app = Flask(__name__)
+
+# the configuration class or object to use
 app.config.from_object(Config)
 
 # map app to Babel
@@ -45,4 +48,5 @@ def index() -> str:
 
 
 if __name__ == "__main__":
+    """ the main file"""
     app.run(host="0.0.0.0", port=5000)
